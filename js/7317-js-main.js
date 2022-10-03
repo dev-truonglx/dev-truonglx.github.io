@@ -104,7 +104,7 @@
       $(this).html(
         event.strftime(
           '' +
-            '<div class="count-block days">%D<span class="count-label">ngày%!d</span></div>' +
+            '<div class="count-block days">%D<span class="count-label">%!d:ngày;</span></div>' +
             '<div class="count-block hours">%H<span class="count-label">%!H:hour,giờ;</span></div>' +
             '<div class="count-block minutes">%M<span class="count-label">%!M:minute,phút;</span></div>' +
             '<div class="count-block seconds">%S<span class="count-label">%!S:second,giây;</span></div>'
