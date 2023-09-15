@@ -100,16 +100,29 @@
         },
       },
     });
-    $('#count').countdown('2022/10/30', function (event) {
-      $(this).html(
-        event.strftime(
-          '' +
-            '<div class="count-block days">%D<span class="count-label">ngày%!d</span></div>' +
-            '<div class="count-block hours">%H<span class="count-label">%!H:hour,giờ;</span></div>' +
-            '<div class="count-block minutes">%M<span class="count-label">%!M:minute,phút;</span></div>' +
-            '<div class="count-block seconds">%S<span class="count-label">%!S:second,giây;</span></div>'
-        )
-      );
+    $('#count').countdown('2022/10/30', {elapse: true}).on('update.countdown', function (event) {
+      if(event.elapsed) {
+        $(this).html(
+          event.strftime(
+            '' +
+              '<div class="count-block days">%D<span class="count-label">ngày%!d</span></div>' +
+              '<div class="count-block hours">%H<span class="count-label">%!H:hour,giờ;</span></div>' +
+              '<div class="count-block minutes">%M<span class="count-label">%!M:minute,phút;</span></div>' +
+              '<div class="count-block seconds">%S<span class="count-label">%!S:second,giây;</span></div>'
+          )
+        );
+      } else {
+        $(this).html(
+          event.strftime(
+            '' +
+              '<div class="count-block days">%D<span class="count-label">ngày%!d</span></div>' +
+              '<div class="count-block hours">%H<span class="count-label">%!H:hour,giờ;</span></div>' +
+              '<div class="count-block minutes">%M<span class="count-label">%!M:minute,phút;</span></div>' +
+              '<div class="count-block seconds">%S<span class="count-label">%!S:second,giây;</span></div>'
+          )
+        );
+      }
+      
     });
     $('.gallery-grid').magnificPopup({
       delegate: 'a',
