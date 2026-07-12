@@ -207,6 +207,16 @@
   .export-row { display: flex; gap: 8px; padding: 14px 20px; border-top: 1px solid var(--border); flex-wrap: wrap; }
   .chip { font-family: var(--mono); font-size: 11.5px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--ink-dim); }
 
+  /* open existing image mockup */
+  .open-mock { padding: 28px 22px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .file-card { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--surface-2); }
+  .file-ic { width: 30px; height: 30px; color: var(--ink-dim); flex: none; }
+  .file-ic svg { width: 100%; height: 100%; }
+  .file-meta { display: flex; flex-direction: column; gap: 2px; }
+  .file-name { font-size: 13px; color: var(--ink); }
+  .file-size { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+  .open-arrow { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); }
+
   /* recording timeline mockup */
   .timeline-mock { padding: 22px; }
   .film { display: flex; gap: 2px; margin-bottom: 14px; border-radius: 6px; overflow: hidden; }
