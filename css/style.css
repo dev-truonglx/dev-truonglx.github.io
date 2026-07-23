@@ -291,6 +291,19 @@
   footer .brand { font-size: 13.5px; }
   footer .fbits { font-size: 12.5px; color: var(--ink-faint); }
 
+  /* settings mockup */
+  .settings-mock { padding: 20px; }
+  .set-section { margin-bottom: 20px; }
+  .set-section:last-child { margin-bottom: 0; }
+  .set-header { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; font-weight: 600; }
+  .set-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .set-row:last-child { border-bottom: none; }
+  .set-label { font-size: 13.5px; color: var(--ink); }
+  .set-value { font-size: 13px; color: var(--ink-dim); }
+  .set-toggle { width: 24px; height: 12px; background: var(--accent); border-radius: 6px; position: relative; }
+  .set-toggle::after { content: ""; position: absolute; right: 2px; top: 50%; transform: translateY(-50%); width: 10px; height: 10px; background: var(--surface); border-radius: 50%; }
+  .set-action { color: var(--accent); cursor: pointer; font-weight: 500; }
+
   @media (max-width: 640px) {
     section { padding: 64px 0; }
     .desk { height: auto; min-height: 300px; }
