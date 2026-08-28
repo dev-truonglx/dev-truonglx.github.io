@@ -18,6 +18,7 @@
       <li><a href="#import">Mở ảnh có sẵn</a></li>
       <li><a href="#record">Quay màn hình</a></li>
       <li><a href="#library">Thư viện</a></li>
+      <li><a href="guide.html">Hướng dẫn sử dụng</a></li>
       <li><a href="#settings">Cài đặt</a></li>
       <li><a href="#shortcuts">Phím tắt</a></li>
     </ul>
@@ -375,6 +376,160 @@
     <div class="fine" style="margin-top:14px">Trên Windows, thay <kbd style="margin:0">⌘</kbd> bằng <kbd style="margin:0">Ctrl</kbd></div>
   </div>
 </section>
+
+<!-- ================= USER GUIDE ================= -->
+<section id="guide">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="bracket"></span>HƯỚNG DẪN SỬ DỤNG</div>
+      <h2>Hướng dẫn sử dụng SnapDoc từ A-Z</h2>
+      <p class="lede">Tổng hợp chi tiết các thao tác chụp ảnh màn hình, thanh công cụ chụp nhanh, cách sử dụng các công cụ chú thích trong Editor và trình cắt video.</p>
+    </div>
+
+    <!-- Guide Navigation Tabs -->
+    <div class="guide-tabs">
+      <button class="guide-tab-btn active" onclick="switchGuideTab('g-modes', this)">📸 1. Các chế độ chụp</button>
+      <button class="guide-tab-btn" onclick="switchGuideTab('g-quick', this)">⚡ 2. Thanh chụp nhanh</button>
+      <button class="guide-tab-btn" onclick="switchGuideTab('g-editor', this)">🎨 3. Công cụ Editor</button>
+      <button class="guide-tab-btn" onclick="switchGuideTab('g-trim', this)">🎥 4. Quay & Cắt Video</button>
+    </div>
+
+    <!-- Tab 1: Capture Modes -->
+    <div id="g-modes" class="guide-content active">
+      <div class="guide-grid">
+        <div class="guide-item">
+          <h4>📸 Chụp vùng chọn <kbd style="margin-left:auto">⌘⇧2</kbd></h4>
+          <p>Kéo giữ chuột trái để chọn vị trí vùng cần chụp. Thả chuột ➔ Chọn Copy / Lưu / Mở Editor từ thanh công cụ nổi.</p>
+        </div>
+        <div class="guide-item">
+          <h4>🖥️ Chụp toàn màn hình <kbd style="margin-left:auto">⌘⇧1</kbd></h4>
+          <p>Bấm phím tắt để chụp lập tức toàn bộ nội dung màn hình hiện tại mà không cần khoanh vùng.</p>
+        </div>
+        <div class="guide-item">
+          <h4>🪟 Chụp cửa sổ ứng dụng <kbd style="margin-left:auto">⌘⇧3</kbd></h4>
+          <p>Di chuột đến cửa sổ ứng dụng (cửa sổ sẽ phát sáng viền xanh) ➔ Nhấp chuột để chụp trọn vẹn cửa sổ đó.</p>
+        </div>
+        <div class="guide-item">
+          <h4>🖥️🖥️ Chụp tất cả màn hình <kbd style="margin-left:auto">⌘⇧4</kbd></h4>
+          <p>Tự động chụp và ghép ngang tất cả các màn hình phụ và chính thành một bức ảnh panorama duy nhất.</p>
+        </div>
+        <div class="guide-item">
+          <h4>📜 Chụp cuộn trang dài <kbd style="margin-left:auto">⌘⇧6</kbd></h4>
+          <p>Chọn vùng ➔ Bấm phím <kbd>Space</kbd> ➔ Cuộn chuột từ từ ➔ Bấm phím <kbd>Enter</kbd> để hoàn tất ghép ảnh dài.</p>
+        </div>
+        <div class="guide-item">
+          <h4>⚡ Chụp nhanh tại chỗ <kbd style="margin-left:auto">⌘⇧C</kbd></h4>
+          <p>Khoanh vùng và chú thích ngay trên màn hình trong suốt mà không cần mở giao diện Editor chuyên sâu.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Quick Capture Bar & Overlay -->
+    <div id="g-quick" class="guide-content">
+      <div class="guide-box">
+        <h3>Các tính năng trên thanh Capture Bar & Overlay</h3>
+        <p>Khi kích hoạt thanh chụp nổi hoặc chế độ chụp vùng, thanh công cụ sẽ tự động xuất hiện với các tiện ích:</p>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <h4>📸 / 🎥 Đổi Chế độ</h4>
+            <p>Chuyển đổi tức thì giữa chụp ảnh tĩnh và quay video màn hình.</p>
+          </div>
+          <div class="guide-item">
+            <h4>⏱️ Hẹn giờ tự động</h4>
+            <p>Chọn thời gian đếm ngược: Tắt, 5 giây hoặc 10 giây trước khi bấm chụp.</p>
+          </div>
+          <div class="guide-item">
+            <h4>🎙️ Nguồn Âm thanh</h4>
+            <p>Ghi âm khi quay: Tắt, Microphone, Âm thanh hệ thống hoặc Kết hợp cả 2.</p>
+          </div>
+          <div class="guide-item">
+            <h4>⌨️ Phím thao tác nhanh</h4>
+            <p><kbd>Esc</kbd> Hủy | <kbd>Enter</kbd> Copy | <kbd>⌘S</kbd> Lưu | <kbd>⌘E</kbd> Editor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Editor Annotation Tools -->
+    <div id="g-editor" class="guide-content">
+      <div class="guide-box">
+        <h3>Các công cụ vẽ & chú thích trên Canvas (Konva Engine)</h3>
+        <p>Nhấp vào từng icon bên dưới để xem chi tiết cách sử dụng và phím tắt trong Editor:</p>
+
+        <div class="tools-catalog">
+          <div class="tool-item-card active" onclick="showEditorTool('🏹', 'Chọn & Di chuyển', 'V', 'Dùng để chọn đối tượng đã vẽ trên canvas để di chuyển, thu phóng, xoay hoặc đổi màu.', this)">
+            <span class="t-icon">🏹</span>
+            <span class="t-name">Select</span>
+            <span class="t-key">Phím: V</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('🔲', 'Khung Hình chữ nhật', 'R', 'Vẽ khung chữ nhật xung quanh nội dung cần làm nổi bật (Hỗ trợ khung số).', this)">
+            <span class="t-icon">🔲</span>
+            <span class="t-name">Rectangle</span>
+            <span class="t-key">Phím: R</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('⭕', 'Hình Tròn / Elip', 'O', 'Vẽ đường tròn hoặc elip để khoanh vùng chi tiết trên ảnh.', this)">
+            <span class="t-icon">⭕</span>
+            <span class="t-name">Ellipse</span>
+            <span class="t-key">Phím: O</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('↗️', 'Mũi Tên Chỉ Dẫn', 'T / N', 'Vẽ mũi tên chỉ điểm. Nhấn N để dùng Mũi tên có đánh số tự động tăng.', this)">
+            <span class="t-icon">↗️</span>
+            <span class="t-name">Arrow</span>
+            <span class="t-key">Phím: T / N</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('📝', 'Viết Văn Bản', 'C', 'Chèn văn bản chú thích trực tiếp. Hỗ trợ tùy chỉnh font, cỡ chữ và màu sắc.', this)">
+            <span class="t-icon">📝</span>
+            <span class="t-name">Text</span>
+            <span class="t-key">Phím: C</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('🔢', 'Đánh Số Bước Tự Động', 'N', 'Click chuột vào ảnh để thả bóng số tự động tăng 1, 2, 3... Tuyệt vời khi làm hướng dẫn theo bước.', this)">
+            <span class="t-icon">🔢</span>
+            <span class="t-name">Step Counter</span>
+            <span class="t-key">Phím: N</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('💧', 'Che Mờ Thông Tin', 'B', 'Bôi mờ (Blur / Pixelate) các thông tin nhạy cảm như mật khẩu, sđt, thông tin cá nhân.', this)">
+            <span class="t-icon">💧</span>
+            <span class="t-name">Blur / Pixel</span>
+            <span class="t-key">Phím: B</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('🖍️', 'Tô Sáng Văn Bản', 'H', 'Bút tô dạ quang làm nổi bật các dòng chữ quan trọng.', this)">
+            <span class="t-icon">🖍️</span>
+            <span class="t-name">Highlight</span>
+            <span class="t-key">Phím: H</span>
+          </div>
+          <div class="tool-item-card" onclick="showEditorTool('✂️', 'Cắt & Ghép Ảnh', 'Crop/Stitch', 'Cắt xoay khung hình ảnh hoặc Nối nhiều ảnh chụp thành 1 ảnh dài.', this)">
+            <span class="t-icon">✂️</span>
+            <span class="t-name">Crop / Stitch</span>
+            <span class="t-key">Cắt/Nối</span>
+          </div>
+        </div>
+
+        <div id="tool-preview-panel" class="tool-preview-panel">
+          <h4><span>🏹</span> Chọn & Di chuyển <kbd style="margin-left:8px; font-size:11px">Phím: V</kbd></h4>
+          <p>Dùng để chọn đối tượng đã vẽ trên canvas để di chuyển, thu phóng, xoay hoặc đổi màu.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Screen Recording & Trim -->
+    <div id="g-trim" class="guide-content">
+      <div class="guide-box">
+        <h3>Quay Màn Hình & Trình Cắt Video CapCut-style</h3>
+        <p>Sau khi bấm dừng quay, video sẽ tự động được chuyển tới giao diện Trình xem & Cắt tỉa (Review & Trim):</p>
+
+        <ul class="guide-steps">
+          <li><strong><kbd>⌘B</kbd> hoặc <kbd>Ctrl+B</kbd>:</strong> Tách / Cắt đôi phân đoạn video tại vị trí thanh phát hiện tại (Split segment).</li>
+          <li><strong><kbd>Q</kbd>:</strong> Cắt bỏ toàn bộ đoạn video đằng trước vị trí hiện tại (Trim start).</li>
+          <li><strong><kbd>W</kbd>:</strong> Cắt bỏ toàn bộ đoạn video đằng sau vị trí hiện tại (Trim end).</li>
+          <li><strong><kbd>Delete</kbd>:</strong> Xóa phân đoạn video đang chọn.</li>
+          <li><strong><kbd>⌘Z</kbd> / <kbd>⌘⇧Z</kbd>:</strong> Hoàn tác hoặc làm lại thao tác cắt video.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ================= SETTINGS ================= -->
 <section id="settings">

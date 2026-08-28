@@ -32,3 +32,28 @@
       });
     });
 })();
+
+function switchGuideTab(tabId, btn) {
+  var contents = document.querySelectorAll('.guide-content');
+  contents.forEach(function(c) { c.classList.remove('active'); });
+
+  var btns = document.querySelectorAll('.guide-tab-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+
+  var target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function showEditorTool(icon, name, key, desc, el) {
+  var cards = document.querySelectorAll('.tool-item-card');
+  cards.forEach(function(c) { c.classList.remove('active'); });
+
+  if (el) el.classList.add('active');
+
+  var panel = document.getElementById('tool-preview-panel');
+  if (panel) {
+    panel.innerHTML = '<h4><span>' + icon + '</span> ' + name + ' <kbd style="margin-left:8px; font-size:11px">Phím: ' + key + '</kbd></h4>' +
+      '<p>' + desc + '</p>';
+  }
+}

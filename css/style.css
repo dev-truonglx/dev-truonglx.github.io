@@ -311,3 +311,53 @@
     .editor-mock { grid-template-columns: 1fr; }
     .e-rail { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); }
   }
+
+  /* ---------- user guide section ---------- */
+  .guide-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .guide-tab-btn {
+    padding: 8px 16px; border-radius: var(--radius-s); border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--ink-dim); font-size: 13.5px; font-weight: 600;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .guide-tab-btn:hover { color: var(--ink); border-color: var(--ink-dim); }
+  .guide-tab-btn.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+  .guide-content { display: none; }
+  .guide-content.active { display: block; }
+
+  .guide-box {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-m);
+    padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+  }
+  .guide-box h3 { font-size: 18px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .guide-box p { color: var(--ink-dim); font-size: 14px; margin: 0 0 14px; }
+
+  .guide-steps { margin: 0; padding-left: 20px; color: var(--ink-dim); font-size: 13.5px; }
+  .guide-steps li { margin-bottom: 8px; }
+  .guide-steps strong { color: var(--ink); }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .guide-item {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-s);
+    padding: 16px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .guide-item h4 { font-size: 14.5px; margin: 0; display: flex; align-items: center; gap: 8px; }
+  .guide-item p { font-size: 13px; color: var(--ink-dim); margin: 0; }
+
+  .tools-catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .tool-item-card {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-s);
+    padding: 12px 10px; text-align: center; cursor: pointer; transition: all .15s ease;
+  }
+  .tool-item-card:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .tool-item-card.active { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+  .tool-item-card .t-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+  .tool-item-card .t-name { font-size: 13px; font-weight: 600; display: block; }
+  .tool-item-card .t-key { font-family: var(--mono); font-size: 11px; opacity: 0.8; margin-top: 2px; display: inline-block; }
+
+  .tool-preview-panel {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-s);
+    padding: 18px; color: var(--ink);
+  }
+  .tool-preview-panel h4 { margin: 0 0 6px; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  .tool-preview-panel p { margin: 0; font-size: 13.5px; color: var(--ink-dim); }

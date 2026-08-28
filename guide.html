@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hướng Dẫn Sử Dụng Chi Tiết — SnapDoc</title>
+  <meta name="description" content="Tài liệu hướng dẫn chi tiết từ A-Z các tính năng, chế độ chụp ảnh, quay màn hình, công cụ editor và phím tắt của SnapDoc." />
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Dedicated Guide Page Layout */
+    .guide-page { padding: 48px 0 96px; }
+    .guide-layout { display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
+    
+    .sidebar-nav {
+      position: sticky; top: 80px; align-self: start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-m); padding: 18px; box-shadow: var(--shadow);
+      max-height: calc(100vh - 100px); overflow-y: auto;
+    }
+    .sidebar-title {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; font-weight: 700;
+    }
+    .sidebar-menu { list-style: none; padding: 0; margin: 0; }
+    .sidebar-menu li { margin-bottom: 6px; }
+    .sidebar-menu a {
+      display: block; padding: 6px 10px; border-radius: var(--radius-s);
+      font-size: 13.5px; color: var(--ink-dim); text-decoration: none; transition: all .15s ease;
+    }
+    .sidebar-menu a:hover, .sidebar-menu a.active {
+      background: var(--surface-2); color: var(--accent); font-weight: 600;
+    }
+
+    .doc-section { margin-bottom: 48px; scroll-margin-top: 90px; }
+    .doc-section h2 {
+      font-size: 24px; border-bottom: 1px solid var(--border);
+      padding-bottom: 10px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .doc-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-m); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow);
+    }
+    .doc-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--ink); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .doc-card p { font-size: 14px; color: var(--ink-dim); margin-bottom: 14px; line-height: 1.6; }
+
+    .step-box {
+      background: var(--surface-2); border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-s) var(--radius-s) 0; padding: 14px 18px; margin-bottom: 14px;
+    }
+    .step-box ol { margin: 0; padding-left: 20px; color: var(--ink); font-size: 13.5px; }
+    .step-box li { margin-bottom: 6px; }
+
+    .feature-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .f-badge {
+      font-size: 11.5px; font-family: var(--mono); background: var(--accent-soft);
+      color: var(--accent); padding: 3px 8px; border-radius: 4px; font-weight: 600;
+    }
+
+    .tool-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13.5px; }
+    .tool-table th, .tool-table td { padding: 10px 14px; border: 1px solid var(--border); text-align: left; }
+    .tool-table th { background: var(--surface-2); font-weight: 700; color: var(--ink); }
+    .tool-table tr:nth-child(even) { background: var(--surface-2); }
+
+    @media (max-width: 860px) {
+      .guide-layout { grid-template-columns: 1fr; }
+      .sidebar-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header Navigation -->
+<div class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="index.html#top"><img src="assets/app-icon.png" alt="" /> SnapDoc</a>
+    <ul class="nav-links">
+      <li><a href="index.html#capture">Chụp màn hình</a></li>
+      <li><a href="index.html#edit">Chỉnh sửa</a></li>
+      <li><a href="index.html#import">Mở ảnh có sẵn</a></li>
+      <li><a href="index.html#record">Quay màn hình</a></li>
+      <li><a href="index.html#library">Thư viện</a></li>
+      <li><a href="guide.html" style="color:var(--accent); font-weight:600;">Hướng dẫn sử dụng</a></li>
+      <li><a href="index.html#settings">Cài đặt</a></li>
+      <li><a href="index.html#shortcuts">Phím tắt</a></li>
+    </ul>
+    <a class="nav-cta" href="index.html#download">Tải xuống</a>
+  </div>
+</div>
+
+<!-- Main Guide Content -->
+<div class="wrap guide-page">
+  
+  <div class="section-head" style="margin-bottom: 32px;">
+    <div class="eyebrow"><span class="bracket"></span>TÀI LIỆU HƯỚNG DẪN CHI TIẾT</div>
+    <h1>Hướng Dẫn Sử Dụng SnapDoc</h1>
+    <p class="lede">Tất cả thông tin bạn cần để làm chủ ứng dụng SnapDoc: Các chế độ chụp ảnh, quay màn hình, công cụ Editor chuyên sâu và mẹo dùng phím tắt.</p>
+  </div>
+
+  <div class="guide-layout">
+    
+    <!-- Sidebar Table of Contents -->
+    <aside class="sidebar-nav">
+      <div class="sidebar-title">Mục lục nội dung</div>
+      <ul class="sidebar-menu">
+        <li><a href="#doc-screenshot" class="active">1. Các chế độ Chụp ảnh</a></li>
+        <li><a href="#doc-recording">2. Quay Màn Hình & Audio</a></li>
+        <li><a href="#doc-overlay">3. Thanh Capture Bar & Overlay</a></li>
+        <li><a href="#doc-editor">4. Công cụ Editor (Konva)</a></li>
+        <li><a href="#doc-trim">5. Trình Cắt Video (Trim)</a></li>
+        <li><a href="#doc-library">6. Thư viện & Cài đặt</a></li>
+        <li><a href="#doc-cheatsheet">7. Tra cứu phím tắt</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="guide-main">
+
+      <!-- SECTION 1: SCREENSHOT MODES -->
+      <section id="doc-screenshot" class="doc-section">
+        <h2>📸 1. Các Chế Độ Chụp Ảnh Màn Hình</h2>
+        <p>SnapDoc hỗ trợ 6 chế độ chụp màn hình chuyên biệt phù hợp cho từng nhu cầu công việc khác nhau:</p>
+
+        <!-- Region -->
+        <div class="doc-card">
+          <h3>1.1 Chụp Vùng Chọn (Region Capture) <kbd>⌘⇧2</kbd> / <kbd>Ctrl+Shift+2</kbd></h3>
+          <p>Là chế độ phổ biến nhất cho phép bạn tự do chọn vị trí và kích thước hình chữ nhật / hình vuông bất kỳ trên màn hình.</p>
+          <div class="step-box">
+            <ol>
+              <li><strong>Thao tác 1:</strong> Nhấn tổ hợp phím <kbd>⌘⇧2</kbd> (Mac) hoặc <kbd>Ctrl+Shift+2</kbd> (Windows) để mở giao diện làm mờ màn hình.</li>
+              <li><strong>Thao tác 2:</strong> Nhấp và giữ chuột trái tại góc bắt đầu, sau đó kéo tới góc đối diện của vùng cần chụp.</li>
+              <li><strong>Thao tác 3:</strong> Bạn có thể dùng 8 tay cầm ở 4 góc và 4 cạnh để tinh chỉnh lại kích thước vùng chọn.</li>
+              <li><strong>Thao tác 4:</strong> Bấm nút <strong>Save</strong> (<kbd>⌘S</kbd>), <strong>Copy</strong> (<kbd>⌘C</kbd>) hoặc <strong>Editor</strong> (<kbd>⌘E</kbd>) trên thanh thanh công cụ nổi để hoàn tất.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Fullscreen -->
+        <div class="doc-card">
+          <h3>1.2 Chụp Toàn Màn Hình (Full Screen) <kbd>⌘⇧1</kbd> / <kbd>Ctrl+Shift+1</kbd></h3>
+          <p>Chụp ngay lập tức toàn bộ nội dung hiển thị trên màn hình hiện tại mà không cần qua thao tác khoanh vùng.</p>
+          <div class="step-box">
+            <ol>
+              <li><strong>Thao tác 1:</strong> Nhấn phím tắt <kbd>⌘⇧1</kbd>.</li>
+              <li><strong>Thao tác 2:</strong> Ảnh sẽ tự động được lưu file hoặc copy vào Clipboard theo cài đặt mặc định của bạn.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Window -->
+        <div class="doc-card">
+          <h3>1.3 Chụp Cửa Sổ Ứng Dụng (Window Capture) <kbd>⌘⇧3</kbd> / <kbd>Ctrl+Shift+3</kbd></h3>
+          <p>Tự động phát hiện và viền chính xác khung hình của từng ứng dụng đang mở (như Chrome, VS Code, Finder, Telegram...).</p>
+          <div class="step-box">
+            <ol>
+              <li><strong>Thao tác 1:</strong> Nhấn <kbd>⌘⇧3</kbd>.</li>
+              <li><strong>Thao tác 2:</strong> Di chuyển con trỏ chuột đến ứng dụng bạn muốn chụp. Cửa sổ đó sẽ tự động phát sáng viền xanh nhạt.</li>
+              <li><strong>Thao tác 3:</strong> Nhấp chuột trái để chụp trọn vẹn khung hình cửa sổ đó. Nhấn <kbd>Esc</kbd> để hủy bỏ.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- All Screens -->
+        <div class="doc-card">
+          <h3>1.4 Chụp Tất Cả Màn Hình (All Screens) <kbd>⌘⇧4</kbd> / <kbd>Ctrl+Shift+4</kbd></h3>
+          <p>Dành cho người dùng mở nhiều màn hình monitor cùng lúc. SnapDoc sẽ ghép toàn bộ các màn hình lại thành 1 bức ảnh duy nhất.</p>
+          <div class="step-box">
+            <ol>
+              <li><strong>Thao tác 1:</strong> Nhấn <kbd>⌘⇧4</kbd>.</li>
+              <li><strong>Thao tác 2:</strong> Hệ thống tự động chụp màn hình chính và tất cả màn hình phụ, ghép nằm ngang cạnh nhau.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Scrolling -->
+        <div class="doc-card">
+          <h3>1.5 Chụp Cuộn Trang Dài (Scrolling Capture) <kbd>⌘⇧6</kbd> / <kbd>Ctrl+Shift+6</kbd></h3>
+          <p>Giải pháp tối ưu khi cần chụp bài viết, trang web hoặc mã nguồn kéo dài nhiều trang màn hình.</p>
+          <div class="step-box">
+            <ol>
+              <li><strong>Thao tác 1:</strong> Nhấn <kbd>⌘⇧6</kbd> và kéo chọn vùng chứa nội dung cần cuộn.</li>
+              <li><strong>Thao tác 2:</strong> Nhấn phím <kbd>Space</kbd> để bắt đầu ghi hình cuộn.</li>
+              <li><strong>Thao tác 3:</strong> Cuộn lăn chuột từ từ và đều tay xuống phía dưới. Màn hình sẽ hiển thị thông báo tiến độ ghép ảnh.</li>
+              <li><strong>Thao tác 4:</strong> Nhấn phím <kbd>Enter</kbd> khi đã cuộn xong để xuất thành bức ảnh dài trọn vẹn.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Quick Capture Overlay -->
+        <div class="doc-card">
+          <h3>1.6 Chụp Nhanh Tại Chỗ (Quick Capture Overlay) <kbd>⌘⇧C</kbd> / <kbd>Ctrl+Shift+X</kbd></h3>
+          <p>Chế độ tốc độ cao cho phép vẽ hình chữ nhật, chèn mũi tên, viết chữ hoặc che mờ ngay tại chỗ trên khung overlay mà không cần mở cửa sổ Editor riêng biệt.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: RECORDING -->
+      <section id="doc-recording" class="doc-section">
+        <h2>🎥 2. Quay Màn Hình & Thu Âm Audio</h2>
+        <p>SnapDoc giúp bạn quay lại video thao tác màn hình sắc nét 30fps kèm nhiều lựa chọn âm thanh linh hoạt:</p>
+
+        <div class="doc-card">
+          <h3>2.1 Quy trình Quay Màn Hình</h3>
+          <div class="step-box">
+            <ol>
+              <li><strong>Bắt đầu quay:</strong> Mở thanh Capture Bar ➔ Chọn icon Quay video 🎥 ➔ Chọn vùng hoặc toàn màn hình ➔ Bấm nút <strong>Start Recording</strong>.</li>
+              <li><strong>Khi đang quay:</strong> Biểu tượng đếm giờ màu đỏ xuất hiện ở góc màn hình / khay hệ thống. Bạn có thể tạm dừng (Pause) hoặc tiếp tục (Resume) bất cứ lúc nào.</li>
+              <li><strong>Dừng quay:</strong> Bấm nút <strong>Stop Recording</strong> (hoặc phím tắt). Video sẽ lập tức được chuyển sang trình <strong>Review & Trim</strong> để bạn duyệt và cắt tỉa trước khi lưu.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <h3>2.2 Các Tùy Chọn Âm Thanh (Audio Sources)</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Nguồn Âm Thanh</th>
+                <th>Mô Tả & Trường Hợp Sử Dụng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tắt (Off)</strong></td>
+                <td>Chỉ quay video hình ảnh, không ghi bất kỳ âm thanh nào. Phù hợp tạo gif hoặc video minh họa đơn giản.</td>
+              </tr>
+              <tr>
+                <td><strong>Microphone</strong></td>
+                <td>Ghi âm trực tiếp giọng nói từ Micro của máy tính / tai nghe. Rất thích hợp khi quay video giảng dạy, thuyết minh.</td>
+              </tr>
+              <tr>
+                <td><strong>Âm thanh Hệ thống (System Audio)</strong></td>
+                <td>Ghi lại âm thanh phát ra từ máy tính (tiếng nhạc, tiếng họp Zoom/Meet, tiếng game...).</td>
+              </tr>
+              <tr>
+                <td><strong>Cả Mic & Hệ thống (Both)</strong></td>
+                <td>Kết hợp thu âm cả giọng bạn nói qua Mic và tiếng phát ra từ máy tính cùng lúc, tự động đồng bộ chuẩn xác.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: CAPTURE BAR & OVERLAY -->
+      <section id="doc-overlay" class="doc-section">
+        <h2>⚡ 3. Thanh Capture Bar & Màn Hình Overlay</h2>
+        <p>Thanh công cụ nổi Capture Bar thiết kế theo phong cách macOS mang lại trải nghiệm điều khiển tập trung:</p>
+
+        <div class="doc-card">
+          <h3>Các Công Cụ Tích Hợp Trên Thanh Nổi</h3>
+          <ul style="color:var(--ink-dim); font-size:14px; line-height:1.8;">
+            <li><strong>Chuyển chế độ Chụp / Quay:</strong> Click vào icon Máy ảnh 📸 hoặc Máy quay 🎥 trên thanh bar.</li>
+            <li><strong>Hẹn giờ chụp đếm ngược (Timer):</strong> Đặt đếm ngược <code>Tắt</code>, <code>5 giây</code> hoặc <code>10 giây</code> (hữu ích khi cần mở sẵn menu popup trước khi chụp).</li>
+            <li><strong>Chọn nguồn Audio:</strong> Menu popup chọn Microphone / System Audio khi quay video.</li>
+            <li><strong>Phím tắt nhanh trên Overlay:</strong>
+              <div class="feature-badge-row" style="margin-top:6px;">
+                <span class="f-badge">Esc: Hủy chụp</span>
+                <span class="f-badge">Enter / ⌘C: Copy Clipboard</span>
+                <span class="f-badge">⌘S: Lưu file</span>
+                <span class="f-badge">⌘E: Mở Editor</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 4: EDITOR TOOLS -->
+      <section id="doc-editor" class="doc-section">
+        <h2>🎨 4. Giao Diện Editor & Công Cụ Chú Thích (Konva)</h2>
+        <p>Editor chuyên sâu của SnapDoc được xây dựng trên công nghệ Canvas (Konva Engine), cho phép thao tác mượt mà với đầy đủ các công cụ đồ họa:</p>
+
+        <div class="doc-card">
+          <h3>Bảng Chi Tiết Công Cụ Annotation</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Biểu Tượng</th>
+                <th>Tên Công Cụ</th>
+                <th>Phím Tắt</th>
+                <th>Hướng Dẫn Sử Dụng Chi Tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🏹</td>
+                <td><strong>Select (Chọn đối tượng)</strong></td>
+                <td><kbd>V</kbd></td>
+                <td>Click chọn bất kỳ đối tượng nào đã vẽ để di chuyển, đổi màu nét, thay đổi độ dày hoặc xoay/thu phóng.</td>
+              </tr>
+              <tr>
+                <td>🔲</td>
+                <td><strong>Rectangle (Hình chữ nhật)</strong></td>
+                <td><kbd>R</kbd></td>
+                <td>Vẽ khung chữ nhật để bao quanh các khu vực quan trọng. Hỗ trợ chọn viền nét đứt hoặc khung có gắn số.</td>
+              </tr>
+              <tr>
+                <td>⭕</td>
+                <td><strong>Ellipse (Hình tròn/elip)</strong></td>
+                <td><kbd>O</kbd></td>
+                <td>Vẽ vòng tròn hoặc elip để khoanh vùng nhấn mạnh.</td>
+              </tr>
+              <tr>
+                <td>↗️</td>
+                <td><strong>Arrow (Mũi tên chỉ dẫn)</strong></td>
+                <td><kbd>T</kbd></td>
+                <td>Kéo chuột để vẽ mũi tên hướng trực tiếp tới đối tượng cần chú ý.</td>
+              </tr>
+              <tr>
+                <td>📝</td>
+                <td><strong>Text (Viết văn bản)</strong></td>
+                <td><kbd>C</kbd></td>
+                <td>Nhấp vào điểm bất kỳ để nhập chữ chú thích. Hỗ trợ tùy chọn font chữ, cỡ chữ và màu sắc phong phú.</td>
+              </tr>
+              <tr>
+                <td>🔢</td>
+                <td><strong>Step Counter (Đánh số bước)</strong></td>
+                <td><kbd>N</kbd></td>
+                <td>Thả các bong bóng số tự động tăng dần (1, 2, 3...) mỗi lần nhấp chuột. Thích hợp tạo tài liệu hướng dẫn từng bước.</td>
+              </tr>
+              <tr>
+                <td>💧</td>
+                <td><strong>Blur / Pixelate (Che mờ)</strong></td>
+                <td><kbd>B</kbd></td>
+                <td>Vẽ đè lên các vùng nhạy cảm (mật khẩu, sđt, địa chỉ) để làm nhòe hoặc mờ hạt bảo mật thông tin.</td>
+              </tr>
+              <tr>
+                <td>🖍️</td>
+                <td><strong>Highlight (Tô sáng)</strong></td>
+                <td><kbd>H</kbd></td>
+                <td>Bút dạ quang màu vàng/xanh dạng bán trong suốt để tô sáng các dòng văn bản quan trọng.</td>
+              </tr>
+              <tr>
+                <td>✏️</td>
+                <td><strong>Pen (Vẽ tự do)</strong></td>
+                <td><kbd>P</kbd></td>
+                <td>Bút vẽ tự do nét mềm mại cho phép viết tay hoặc phác thảo trực tiếp.</td>
+              </tr>
+              <tr>
+                <td>🖼️</td>
+                <td><strong>Background (Khung nền)</strong></td>
+                <td><kbd>K</kbd></td>
+                <td>Thêm thẻ nền đệm bo góc + đổ bóng xung quanh bức ảnh giúp bức ảnh trông chuyên nghiệp hơn.</td>
+              </tr>
+              <tr>
+                <td>✂️</td>
+                <td><strong>Crop (Cắt ảnh)</strong></td>
+                <td><kbd>Crop</kbd></td>
+                <td>Xoay hoặc cắt bớt các phần thừa xung quanh ảnh chụp.</td>
+              </tr>
+              <tr>
+                <td>🧩</td>
+                <td><strong>Stitch (Nối ảnh)</strong></td>
+                <td><kbd>Stitch</kbd></td>
+                <td>Ghép nhiều ảnh chụp lại với nhau theo chiều ngang hoặc chiều dọc.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="doc-card">
+          <h3>Phím Thao Tác Lịch Sử & Nhân Bản Trong Editor</h3>
+          <ul style="color:var(--ink-dim); font-size:14px; line-height:1.8;">
+            <li><kbd>⌘Z</kbd> / <kbd>Ctrl+Z</kbd>: Hoàn tác thao tác vừa vẽ (Undo).</li>
+            <li><kbd>⌘⇧Z</kbd> / <kbd>Ctrl+Y</kbd>: Làm lại thao tác (Redo).</li>
+            <li><kbd>Delete</kbd> / <kbd>Backspace</kbd>: Xóa các đối tượng đang được chọn.</li>
+            <li><kbd>⌘A</kbd> / <kbd>Ctrl+A</kbd>: Chọn tất cả các đối tượng chú thích trên canvas.</li>
+            <li><kbd>⌘C</kbd> / <kbd>⌘V</kbd>: Copy và Dán đối tượng chú thích.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 5: VIDEO TRIM -->
+      <section id="doc-trim" class="doc-section">
+        <h2>🎥 5. Trình Cắt Tỉa Video CapCut-Style</h2>
+        <p>Sau khi quay màn hình xong, màn hình <strong>Review & Trim</strong> cho phép bạn xem lại và cắt loại bỏ các đoạn video thừa trước khi lưu file:</p>
+
+        <div class="doc-card">
+          <h3>Các Phím Tắt Cắt Video Chuyên Nghiệp</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Phím Tắt</th>
+                <th>Tên Thao Tác</th>
+                <th>Mô Tả Chi Tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>⌘B</kbd> / <kbd>Ctrl+B</kbd></td>
+                <td><strong>Split Segment (Cắt đôi)</strong></td>
+                <td>Cắt tách phân đoạn video hiện tại làm hai phần ngay tại vị trí thanh kim đọc.</td>
+              </tr>
+              <tr>
+                <td><kbd>Q</kbd></td>
+                <td><strong>Trim Start (Cắt đoạn đầu)</strong></td>
+                <td>Cắt bỏ toàn bộ đoạn video phía trước vị trí đang tạm dừng.</td>
+              </tr>
+              <tr>
+                <td><kbd>W</kbd></td>
+                <td><strong>Trim End (Cắt đoạn cuối)</strong></td>
+                <td>Cắt bỏ toàn bộ đoạn video phía sau vị trí đang tạm dừng.</td>
+              </tr>
+              <tr>
+                <td><kbd>Delete</kbd></td>
+                <td><strong>Delete Segment (Xóa đoạn)</strong></td>
+                <td>Xóa phân đoạn video đang được chọn khỏi timeline.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 6: LIBRARY & SETTINGS -->
+      <section id="doc-library" class="doc-section">
+        <h2>📁 6. Thư Viện Tự Động & Cài Đặt</h2>
+        
+        <div class="doc-card">
+          <h3>6.1 Quản Lý Thư Viện (Library)</h3>
+          <p>Mọi bức ảnh và video bạn vừa chụp/quay đều được tự động lưu vào <strong>Thư viện (Library)</strong> địa phương trên máy tính:</p>
+          <ul style="color:var(--ink-dim); font-size:14px; line-height:1.8;">
+            <li><strong>Bộ lọc thông minh:</strong> Lọc danh sách theo Ảnh tĩnh, Video, Ngày chụp hoặc Chế độ chụp.</li>
+            <li><strong>Thùng rác tạm (Soft Delete):</strong> Các mục bị xóa sẽ nằm trong Thùng rác (Trash) giúp bạn khôi phục lại khi cần thiết.</li>
+          </ul>
+        </div>
+
+        <div class="doc-card">
+          <h3>6.2 Cài Đặt Ứng Dụng (Settings)</h3>
+          <ul style="color:var(--ink-dim); font-size:14px; line-height:1.8;">
+            <li><strong>Đổi phím tắt toàn cục:</strong> Tùy chỉnh bất kỳ phím tắt nào theo ý muốn, áp dụng ngay tức thì.</li>
+            <li><strong>Thư mục lưu trữ:</strong> Tùy chọn thư mục mặc định trên ổ cứng để tự động lưu ảnh/video.</li>
+            <li><strong>Hành động mặc định:</strong> Chọn 1 trong 6 hành động tự động sau khi chụp (Mở Editor, Copy Clipboard, Lưu file, Lưu + Copy, Copy + Editor, Chụp nhanh).</li>
+            <li><strong>Khởi động cùng hệ thống:</strong> Tùy chọn SnapDoc tự chạy nền ngay khi mở máy tính.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 7: CHEATSHEET -->
+      <section id="doc-cheatsheet" class="doc-section">
+        <h2>⌨️ 7. Tra Cứu Phím Tắt Toàn Cục</h2>
+        
+        <div class="doc-card">
+          <h3>Bảng Tra Cứu Nhanh Tất Cả Phím Tắt</h3>
+          <table class="tool-table">
+            <thead>
+              <tr>
+                <th>Thao Tác</th>
+                <th>Phân Loại</th>
+                <th>macOS</th>
+                <th>Windows</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chụp toàn màn hình</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧1</kbd></td>
+                <td><kbd>Ctrl+Shift+1</kbd></td>
+              </tr>
+              <tr>
+                <td>Chụp vùng chọn</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧2</kbd></td>
+                <td><kbd>Ctrl+Shift+2</kbd></td>
+              </tr>
+              <tr>
+                <td>Chụp cửa sổ ứng dụng</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧3</kbd></td>
+                <td><kbd>Ctrl+Shift+3</kbd></td>
+              </tr>
+              <tr>
+                <td>Chụp tất cả màn hình</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧4</kbd></td>
+                <td><kbd>Ctrl+Shift+4</kbd></td>
+              </tr>
+              <tr>
+                <td>Chụp cuộn trang dài</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧6</kbd></td>
+                <td><kbd>Ctrl+Shift+6</kbd></td>
+              </tr>
+              <tr>
+                <td>Chụp nhanh tại chỗ</td>
+                <td><span class="f-badge">Toàn cục</span></td>
+                <td><kbd>⌘⇧C</kbd></td>
+                <td><kbd>Ctrl+Shift+X</kbd></td>
+              </tr>
+              <tr>
+                <td>Cắt đôi phân đoạn Video</td>
+                <td><span class="f-badge">Video Trim</span></td>
+                <td><kbd>⌘B</kbd></td>
+                <td><kbd>Ctrl+B</kbd></td>
+              </tr>
+              <tr>
+                <td>Cắt đoạn video phía trước</td>
+                <td><span class="f-badge">Video Trim</span></td>
+                <td><kbd>Q</kbd></td>
+                <td><kbd>Q</kbd></td>
+              </tr>
+              <tr>
+                <td>Cắt đoạn video phía sau</td>
+                <td><span class="f-badge">Video Trim</span></td>
+                <td><kbd>W</kbd></td>
+                <td><kbd>W</kbd></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="wrap">
+  <footer>
+    <a class="brand" href="index.html#top"><img src="assets/app-icon.png" alt="" /> SnapDoc</a>
+    <div class="fbits">© SnapDoc — Desktop Screenshot &amp; Screen Recording App</div>
+  </footer>
+</div>
+
+<script>
+  // Active Sidebar Link Highlight on Scroll
+  window.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('.sidebar-menu a');
+    var sections = document.querySelectorAll('.doc-section');
+
+    function onScroll() {
+      var top = window.scrollY;
+      sections.forEach(function(sec) {
+        var secTop = sec.offsetTop - 120;
+        var secHeight = sec.offsetHeight;
+        var id = sec.getAttribute('id');
+
+        if (top >= secTop && top < secTop + secHeight) {
+          links.forEach(function(link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+  });
+</script>
+
+</body>
+</html>
