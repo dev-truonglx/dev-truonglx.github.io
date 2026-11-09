@@ -1,7 +1,40 @@
 (function () {
   var REPO = "dev-truonglx/snapdoc";
-  var FALLBACK = "https://github.com/" + REPO + "/releases/latest";
+  var MAC_FALLBACK = "https://github.com/" + REPO + "/releases/latest";
+  var WIN_STORE_URL = "ms-windows-store://pdp/?productid=9NDGM88L03WP";
+  var WIN_WEB_URL = "https://apps.microsoft.com/store/detail/9NDGM88L03WP";
 
+  function isWindowsUser() {
+    if (navigator.userAgentData && navigator.userAgentData.platform) {
+      return /win/i.test(navigator.userAgentData.platform);
+    }
+    var platform = navigator.platform || "";
+    var ua = navigator.userAgent || "";
+    return /win/i.test(platform) || /windows/i.test(ua);
+  }
+
+  // Windows links setup
+  var isWin = isWindowsUser();
+  document.querySelectorAll('[data-platform="win"]').forEach(function (el) {
+    if (isWin) {
+      el.href = WIN_STORE_URL;
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
+    } else {
+      // Non-Windows systems cannot handle ms-windows-store:// protocol
+      el.href = WIN_WEB_URL;
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+    }
+  });
+
+  document.querySelectorAll('[data-platform="win-web"]').forEach(function (el) {
+    el.href = WIN_WEB_URL;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  });
+
+  // Mac releases setup (fetch latest .dmg)
   function pickAsset(assets, test) {
     for (var i = 0; i < assets.length; i++) {
       if (test(assets[i].name)) return assets[i].browser_download_url;
@@ -17,18 +50,14 @@
     .then(function (release) {
       var assets = release.assets || [];
       var macUrl = pickAsset(assets, function (n) { return /\.dmg$/i.test(n); });
-      var winUrl = pickAsset(assets, function (n) { return /\.exe$/i.test(n); });
 
       document.querySelectorAll('[data-platform="mac"]').forEach(function (el) {
-        el.href = macUrl || FALLBACK;
-      });
-      document.querySelectorAll('[data-platform="win"]').forEach(function (el) {
-        el.href = winUrl || FALLBACK;
+        el.href = macUrl || MAC_FALLBACK;
       });
     })
     .catch(function () {
-      document.querySelectorAll('[data-platform="mac"], [data-platform="win"]').forEach(function (el) {
-        el.href = FALLBACK;
+      document.querySelectorAll('[data-platform="mac"]').forEach(function (el) {
+        el.href = MAC_FALLBACK;
       });
     });
 })();
